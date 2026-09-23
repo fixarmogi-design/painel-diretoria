@@ -889,7 +889,7 @@ function graficoMediaMensal(meses, ordem, get, corBase, cfg, refM, filtroBase) {
   /* ---- fonte online: o painel pergunta à planilha (via Apps Script) se mudou algo e, se mudou, busca de novo.
      Vale em qualquer computador ou celular; nada depende do PC do bot estar ligado. */
   const API = (window.CEO_API && window.CEO_API.url && window.CEO_API.token) ? window.CEO_API : null;
-  if (API) {
+  {
     let versaoApi = null, ultimaCargaApi = 0, buscando = false, ultimoOk = 0, erroApi = '', ja_carregou = false;
     const inicioPagina = Date.now();
     const INTERVALO_API = Math.max(2, +API.intervalo || 8) * 1000;      // segundos entre conferências
