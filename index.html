@@ -909,12 +909,11 @@ function graficoMediaMensal(meses, ordem, get, corBase, cfg, refM, filtroBase) {
     }
     async function chamarApi(acao) {
       const url = `${API.url}${API.url.includes('?') ? '&' : '?'}acao=${acao}&k=${encodeURIComponent(API.token)}&_=${Date.now()}`;
-      try {
-        const r = await fetch(url, { cache: 'no-store' });
-        if (!r.ok) throw new Error('http ' + r.status);
-        return await r.json();
-      } catch (e) { return await jsonp(url); }                          // se o navegador barrar o fetch, tenta por JSONP
-    }
+     try {
+  return await jsonp(url);
+} catch(e) {
+  throw e;
+}
     function marcarConexao(ok) {
       const z = n => String(n).padStart(2, '0'), d = new Date(ultimoOk || Date.now());
       const hora = `${z(d.getHours())}:${z(d.getMinutes())}:${z(d.getSeconds())}`;
