@@ -907,12 +907,13 @@ function graficoMediaMensal(meses, ordem, get, corBase, cfg, refM, filtroBase) {
         document.head.appendChild(s);
       });
     }
-    async function chamarApi(acao) {
-      const url = `${API.url}${API.url.includes('?') ? '&' : '?'}acao=${acao}&k=${encodeURIComponent(API.token)}&_=${Date.now()}`;
-     try {
+   async function chamarApi(acao) {
+
+  const url =
+    `${API.url}${API.url.includes('?') ? '&' : '?'}acao=${acao}&k=${encodeURIComponent(API.token)}&_=${Date.now()}`;
+
   return await jsonp(url);
-} catch(e) {
-  throw e;
+
 }
     function marcarConexao(ok) {
       const z = n => String(n).padStart(2, '0'), d = new Date(ultimoOk || Date.now());
