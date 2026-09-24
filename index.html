@@ -907,7 +907,7 @@ function graficoMediaMensal(meses, ordem, get, corBase, cfg, refM, filtroBase) {
         document.head.appendChild(s);
       });
     }
-   async function chamarApi(acao) {
+async function chamarApi(acao) {
 
   const url =
     `${API.url}${API.url.includes('?') ? '&' : '?'}acao=${acao}&k=${encodeURIComponent(API.token)}&_=${Date.now()}`;
